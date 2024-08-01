@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Homepage</title>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lora:wght@400;700&display=swap">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.3.1/jspdf.umd.min.js"></script>
+</head>
+<body>
+    <div class="container-fluid">
+        <!-- Titolo -->
+        <div class="row justify-content-center">
+            <div class="col-12 text-center mb-4">
+                <h3>Staging and Grading</h3>
+            </div>
+        </div>
+        <div class="row justify-content-center">
+            <div class="col-12 text-center mb-4">
+                <h1>Prognostic Perio-Nomogram</h1>
+            </div>
+        </div>
+
+        <!-- Pulsante per aprire la modale -->
+        <div class="row justify-content-center">
+            <div class="col-12 text-center mb-4">
+                <button type="button" id="open-calculate-button" class="button-base" data-toggle="modal" data-target="#mainModal">
+                    Patient Risk Assessment
+                </button>
+            </div>
+        </div>
+
+        <!-- Immagine 1 -->
+        <div class="row justify-content-center">
+            <div class="col-12 mb-4">
+                <figure class="img-container">
+                    <img src="{{ url_for('static', filename='article.jpg') }}" alt="Image 1" class="img-fluid img-equal">
+                    <figcaption class="img-caption">
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus lacinia odio vitae vestibulum.
+                    </figcaption>
+                </figure>
+            </div>
+        </div>
+		
+		<!-- Testo del paragrafo -->
+		<div class="row justify-content-center">
+			<div class="col-12 mb-4 text-container text-center">
+				<p>
+					Our research group has successfully developed and internally validated a new prognostic tool in the field of periodontology using the University of Michigan cohort: the nomogram. This tool is based on a multivariate model that incorporates the staging and grading components of the 2018 periodontitis classification. Its goal is to guide clinicians in the early detection of patients at high risk for periodontitis-related tooth loss.
+				</p>
+
+				<p>
+					A nomogram is a user-friendly graphical interface that, in this case, evaluates individual risk factors for periodontal tooth loss in an additive manner. It comprises upper and lower components. The upper portion contains the "Score" scale used to compute the weight of each variable (stage, grade, extent, and age). The lower portion calculates the aggregate "total score" for the patient-level risk.
+				</p>
+
+				<p>
+					For example, to predict whether a 64-year-old individual with Stage 3, Grade B generalized periodontitis is at high or low risk of tooth loss within 10 years of diagnosis, the nomogram is used as follows: Age 64 corresponds to a score of 6, Stage 3 gives 3.9 points, Grade B gives 2 points, and the generalized extent gives 1.5 points. Adding these values yields a total score of 13.4 (3.9 + 2 + 1.5 + 6 = 13.4).
+				</p>
+
+				<p>
+					This total score is then applied to the lower component of the nomogram to determine the risk level. If the final score falls below the cut-off point of 12.5, the patient is classified as "low risk"; if it is above 12.5, the patient is classified as "high risk." In this context, 'Low risk' or 'High risk' specifically indicate that the patient has a risk of losing ≤ 1 tooth or ≥2 teeth due to periodontal reasons over a 10-year follow-up period. This model applies only to individuals who attend maintenance visits at least once a year, as it was built on a cohort of compliant patients. For more information on the development, specification, and performance of the nomogram model, please visit: <a href="https://onlinelibrary.wiley.com/doi/10.1111/jcpe.13362" target="_blank">https://onlinelibrary.wiley.com/doi/10.1111/jcpe.13362</a>.
+				</p>
+
+				<p>
+					In a subsequent project by the same research group, the performance of the original nomogram was tested and successfully externally validated across four new cohorts (University of Pittsburgh, University of Louisville, Tufts University, and King’s College London), with their datasets analyzed both individually and collectively. In both cases, a stable and robust discriminative ability of the model was demonstrated, indicating consistent predictive power comparable to that observed during its original development phase.
+				</p>
+
+				<p>
+					However, when applied to patient cohorts from various centers, variations in demographic and clinical characteristics led to differences in the model's performance. To address these variations, a recalibration process was undertaken, improving the model's accuracy and reliability in predicting outcomes across diverse patient populations. Consequently, the nomogram now provides a dependable tool for guiding clinical decisions effectively.
+				</p>
+			</div>
+		</div>
+
+        <!-- Immagine 2 -->
+        <div class="row justify-content-center">
+            <div class="col-12 mb-4">
+                <figure class="img-container">
+                    <img src="{{ url_for('static', filename='calssificationNomogram.jpg') }}" alt="Image 2" class="img-fluid img-equal">
+                    <figcaption class="img-caption">
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus lacinia odio vitae vestibulum.
+                    </figcaption>
+                </figure>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modale calcolo -->
+    <div class="modal fade" id="mainModal" tabindex="-1" role="dialog" aria-labelledby="mainModalLabel" aria-hidden="true">
+        <div class="modal-dialog custom-modal" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="mainModalLabel">Nomogram Calculator</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="card shadow-lg">
+                        <form id="calculation-form">
+                            <div class="form-group">
+                                <label for="age">Date of Birth</label>
+                                <input type="date" class="form-control" id="age" name="age" required>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="stage">Stage</label>
+                                <select class="form-control" id="stage" name="stage" required>
+                                    <option value="-">-</option>
+                                    <option value="1">1</option>
+                                    <option value="2">2</option>
+                                    <option value="3">3</option>
+                                    <option value="4">4</option>
+                                </select>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="grade">Grade</label>
+                                <select class="form-control" id="grade" name="grade" required>
+                                    <option value="-">-</option>
+                                    <option value="A">A</option>
+                                    <option value="B">B</option>
+                                    <option value="C">C</option>
+                                </select>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="extent">Extent</label>
+                                <select class="form-control" id="extent" name="extent" required>
+                                    <option value="-">-</option>
+                                    <option value="Localized">Localized</option>
+                                    <option value="Generalized">Generalized</option>
+                                </select>
+                            </div>
+
+                            <div class="form-group d-flex justify-content-between">
+                                <button type="button" id="reset-button" class="btn btn-secondary" onclick="resetForm()">Reset</button>
+                                <button type="button" id="calculate-button" class="button-base" data-toggle="tooltip" data-placement="top" onclick="calculate()" disabled>Calculate</button>
+                            </div>
+                        </form>
+                        <div id="error-message" class="mt-4 text-danger"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+	
+    <!-- Modale per i risultati -->
+    <div class="modal fade" id="resultModal" tabindex="-1" role="dialog" aria-labelledby="resultModalLabel" aria-hidden="true">
+        <div class="modal-dialog custom-modal" role="document">
+            <div class="modal-content result-modal">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="resultModalLabel">Calculation Results</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div id="result-message" class="form-group">
+                        <!-- Questo campo mostrerà il messaggio di risultato -->
+                    </div>    
+                    <div class="form-group mt-4">
+                        <label>Export Format</label>
+                        <div class="d-flex">
+                            <div class="form-check mr-4">
+                                <input class="form-check-input" type="radio" name="exportFormat" id="exportTxt" value="txt" checked>
+                                <label class="form-check-label" for="exportTxt" data-toggle="tooltip" data-placement="top" title="Text File">
+                                    <i class="fas fa-file-alt fa-2x text-primary"></i>
+                                </label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="exportFormat" id="exportPdf" value="pdf">
+                                <label class="form-check-label" for="exportPdf" data-toggle="tooltip" data-placement="top" title="PDF">
+                                    <i class="fas fa-file-pdf fa-2x text-danger"></i>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group mt-4">
+                        <label for="fileName">File Name</label>
+                        <input type="text" class="form-control" id="fileName" placeholder="Enter file name for export">
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="button-base" onclick="exportFile()">Export</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
