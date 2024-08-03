@@ -333,3 +333,23 @@ body.modal-open {
         max-height: 400px; /* Altezza massima dell'immagine per schermi grandi */
     }
 }
+.button-patient-risk-assessment {
+    composes: button-base;
+    border-radius: 8px;
+    border: 2px solid #0056b3;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.button-patient-risk-assessment i {
+    margin-left: 8px;  /* Spazio tra il testo e l'icona */
+}
+
+.button-patient-risk-assessment:hover {
+    background-color: #0056b3;
+}
+
+.button-patient-risk-assessment:active {
+    background-color: #004494;
+    box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
+}
