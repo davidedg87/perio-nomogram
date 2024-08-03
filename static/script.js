@@ -159,7 +159,7 @@ window.calculate = function() {
 			minute: '2-digit'
 		}).replace(/\//g, '').replace(/,/g, '').replace(/ /g, '-').replace(/:/g, '');
 
-		const fileNameExport = fileName ? fileName : `ResultCalculation_${timestamp}`;
+		const fileNameExport = fileName ? fileName : `ResultRiskAssessment_${timestamp}`;
 
 		if (format === 'txt') {
 			const blob = new Blob([
