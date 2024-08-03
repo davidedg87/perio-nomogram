@@ -335,8 +335,10 @@ body.modal-open {
 }
 .button-patient-risk-assessment {
     composes: button-base;
-    border-radius: 8px;
-    border: 2px solid #0056b3;
+    background-color: #FF9800; /* Arancione per maggiore risalto */
+    color: #ffffff; /* Colore del testo bianco */
+    border-radius: 12px;
+    border: 2px solid #FF9800; /* Mantiene lo stesso colore del background */
     box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
     transition: background-color 0.3s ease, box-shadow 0.3s ease;
 }
@@ -346,10 +348,10 @@ body.modal-open {
 }
 
 .button-patient-risk-assessment:hover {
-    background-color: #0056b3;
+    background-color: #FB8C00; /* Arancione leggermente più scuro al passaggio del mouse */
 }
 
 .button-patient-risk-assessment:active {
-    background-color: #004494;
+    background-color: #F57C00; /* Arancione ancora più scuro quando attivo */
     box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
 }
