@@ -146,10 +146,12 @@ label {
     composes: button-base;
     background-color: #FF9800; /* Arancione per maggiore risalto */
     color: #ffffff;
-    border-radius: 12px;
+    border-radius: 12px; /* Mantieni il border-radius per gli angoli arrotondati */
     border: 2px solid #FF9800;
     box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
     transition: background-color 0.3s ease, box-shadow 0.3s ease;
+    font-size: 18px; /* Aumenta la dimensione del testo */
+    padding: 12px 24px; /* Aumenta il padding per rendere il pulsante più grande */
 }
 
 .button-patient-risk-assessment i {
