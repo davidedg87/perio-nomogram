@@ -1,6 +1,8 @@
-
 /* Carica i font da Google Fonts */
 @import url('https://fonts.googleapis.com/css2?family=Lora:wght@400;700&family=Roboto:wght@400;500;700&display=swap');
+
+
+
 
 /* Stile di base per il corpo della pagina */
 body {
@@ -409,9 +411,56 @@ fieldset .collapsible-legend {
 .collapsible-toggle:checked + .collapsible-legend .collapsible-icon {
     transform: rotate(180deg);
 }
+/* Navbar fissa */
+/* Navbar fissa */
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000; /* Ensure it's higher than other content */
+}
+.navbar .container {
+    display: flex;
+    justify-content: center; /* Allinea orizzontalmente al centro */
+}
 
+.navbar-header {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Allinea i titoli al centro verticalmente */
+    width: 100%; /* Assicura che la navbar-header occupi tutta la larghezza del contenitore */
+}
 
+.navbar-subtitle {
+    margin: 0;
+    font-size: 1.5rem; /* Dimensione del testo per h3 */
+    color: #6c757d; /* Colore del testo per h3 */
+}
 
+.navbar-title {
+    margin: 10px 0 0; /* Margini per il titolo principale */
+    font-size: 2rem; /* Dimensione del testo per h1 */
+    font-weight: 700; /* Peso del font per h1 */
+    color: #343a40; /* Colore del testo per h1 */
+}
 
+.img-fluid {
+    max-width: 100%; /* Mantiene l'immagine fluida e responsive */
+    height: auto; /* Mantiene le proporzioni dell'immagine */
+}
 
+.img-caption {
+    text-align: center; /* Centra la didascalia dell'immagine */
+}
+/* CSS standard per dispositivi mobili (che non applica margine) */
+.image-margin {
+    margin-top: 130px !important;
+}
 
+/* Media query per dispositivi con larghezza dello schermo maggiore di 768px */
+@media (min-width: 768px) {
+    .image-margin {
+        margin-top: 0px !important; /* Margine superiore per desktop */
+    }
+}
