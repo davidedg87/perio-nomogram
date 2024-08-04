@@ -13,30 +13,20 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.3.1/jspdf.umd.min.js"></script>
 </head>
 <body>
+	
+	<nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
+        <div class="container-fluid">
+            <div class="navbar-header text-center w-100">
+                <h3 class="navbar-subtitle">Staging and Grading</h3>
+                <h1 class="navbar-title">Prognostic Perio-Nomogram</h1>
+            </div>
+        </div>
+	</nav>
+		
     <div class="container-fluid">
-        <!-- Titolo -->
-        <div class="row justify-content-center mb-4">
-            <div class="col-12 text-center">
-                <h3>Staging and Grading</h3>
-            </div>
-        </div>
-        <div class="row justify-content-center mb-4">
-            <div class="col-12 text-center">
-                <h1>Prognostic Perio-Nomogram</h1>
-            </div>
-        </div>
-
-        <!-- Pulsante per aprire la modale -->
-        <div class="row justify-content-center mb-4">
-            <div class="col-12 text-center">
-                <button type="button" id="open-calculate-button" class="button-patient-risk-assessment" data-toggle="modal" data-target="#mainModal">
-                    Open Patient Risk Assessment <i class="fas fa-arrow-right"></i>
-                </button>
-            </div>
-        </div>
-
+		
         <!-- Immagine 1 -->
-        <div class="row justify-content-center mb-4">
+        <div class="row justify-content-center mb-4 image-margin" style="padding-top: 130px;">
             <div class="col-12">
                 <figure class="img-container">
                     <img src="{{ url_for('static', filename='images/article.jpg') }}" alt="Image 1" class="img-fluid img-equal">
@@ -76,7 +66,7 @@
 								However, when applied to patient cohorts from various centers, variations in demographic and clinical characteristics led to differences in the model's performance. To address these variations, a recalibration process was undertaken, improving the model's accuracy and reliability in predicting outcomes across diverse patient populations. Consequently, the nomogram now provides a dependable tool for guiding clinical decisions effectively.
 							</p>
 							<p>
-								To perform predictions for your patients using the updated nomogram, just click on the <a href="#open-calculate-button">button</a> above!
+								To perform predictions for your patients using the updated nomogram, just click on the <a href="#open-calculate-button">button</a> at the bottom of the page!!
 							</p>
 						</div>
 					</fieldset>
@@ -95,6 +85,18 @@
                 </figure>
             </div>
         </div>
+		
+		<!-- Pulsante per aprire la modale -->
+        <div class="row justify-content-center mb-4">
+			<div class="img-container">
+				<div class="col-12 text-center">
+					<button type="button" id="open-calculate-button" class="button-patient-risk-assessment" data-toggle="modal" data-target="#mainModal">
+						Open Patient Risk Assessment <i class="fas fa-arrow-right"></i>
+					</button>
+				</div>
+			</div>
+        </div>
+		
     </div>
 
     <!-- Modale calcolo -->
