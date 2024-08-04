@@ -287,10 +287,9 @@ body.modal-open {
         max-width: 80%;
     }
 
-    .modal-content {
-        border-radius: 15px;
-        max-height: 80vh;
-        padding: 10px;
+     .modal-content {
+        max-height: 90vh; /* Imposta un'altezza massima per il contenuto della modale */
+        overflow-y: auto; /* Aggiungi scroll verticale se necessario */
     }
 }
 
