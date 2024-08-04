@@ -5,7 +5,7 @@ import numpy as np
 app = Flask(__name__)
 
 # Carica il modello pkl
-with open('model.pkl', 'rb') as file:
+with open('pkl/model.pkl', 'rb') as file:
     iso_reg_loaded = pickle.load(file)
 
 def recalibrate_probability(initial_probability):
