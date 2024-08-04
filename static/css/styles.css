@@ -2,7 +2,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Lora:wght@400;700&family=Roboto:wght@400;500;700&display=swap');
 
 
-
+* {
+    box-sizing: border-box;
+}
 
 /* Stile di base per il corpo della pagina */
 body {
@@ -325,9 +327,11 @@ body.modal-open {
 }
 /* Rendi il fieldset largo quanto le immagini */
 .collapsible-fieldset {
-    width: 100%; /* Assicurati che occupi tutta la larghezza disponibile del contenitore */
-    max-width: 800px; /* Imposta una larghezza massima uguale a quella delle immagini */
-    margin: 0 auto; /* Centro orizzontalmente */
+    width: 100%;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 0; /* Assicurati che non ci siano padding imprevisti */
+    box-sizing: border-box; /* Imposta il box-sizing per evitare problemi di dimensionamento */
 }
 
 /* Assicurati che il contenuto del fieldset si adatti bene */
@@ -337,7 +341,7 @@ body.modal-open {
     line-height: 1.6;
     color: #333333;
     background-color: #FFFFFF;
-    display: none; /* Nascosto per default */
+    display: none;
 }
 
 
@@ -406,14 +410,16 @@ fieldset .collapsible-legend {
     transform: rotate(180deg);
 }
 /* Navbar fissa */
-/* Navbar fissa */
 .navbar {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    z-index: 1000; /* Ensure it's higher than other content */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 60px; /* Imposta l'altezza minima */
+    padding: 10px 0;
+    background-color: #f8f9fa; /* Cambia il colore di sfondo se necessario */
 }
+
 .navbar .container {
     display: flex;
     justify-content: center; /* Allinea orizzontalmente al centro */
@@ -422,21 +428,31 @@ fieldset .collapsible-legend {
 .navbar-header {
     display: flex;
     flex-direction: column;
-    align-items: center; /* Allinea i titoli al centro verticalmente */
-    width: 100%; /* Assicura che la navbar-header occupi tutta la larghezza del contenitore */
+    align-items: center;
+    width: 100%;
+}
+
+.navbar-title, .navbar-subtitle {
+    margin: 0;
+    padding: 0;
+    text-align: center; /* Assicurati che il testo sia centrato */
 }
 
 .navbar-subtitle {
+    font-size: 1.5rem;
+    color: #6c757d;
     margin: 0;
-    font-size: 1.5rem; /* Dimensione del testo per h3 */
-    color: #6c757d; /* Colore del testo per h3 */
 }
 
 .navbar-title {
-    margin: 10px 0 0; /* Margini per il titolo principale */
-    font-size: 2rem; /* Dimensione del testo per h1 */
-    font-weight: 700; /* Peso del font per h1 */
-    color: #343a40; /* Colore del testo per h1 */
+    font-size: 2rem;
+    font-weight: 700;
+    color: #343a40;
+    margin: 0;
+}
+
+.fieldset-collapsible {
+    transition: none; /* Disabilita le transizioni per il test */
 }
 
 .img-fluid {
@@ -456,5 +472,12 @@ fieldset .collapsible-legend {
 @media (min-width: 768px) {
     .image-margin {
         margin-top: 150px !important; /* Margine superiore per desktop */
+    }
+}
+
+/* Media Queries for Mobile */
+@media (max-width: 767px) {
+    .navbar {
+        min-height: 60px; /* Imposta l'altezza minima */ /* Assicurati che l'altezza sia automatica */
     }
 }
