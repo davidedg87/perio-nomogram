@@ -60,7 +60,6 @@ h5 {
     font-weight: 700; /* Peso del font per maggiore impatto */
     color: #004D40; /* Verde scuro per un buon contrasto */
 }
-
 /* Etichette e Form */
 label {
     font-family: 'Lora', sans-serif;
@@ -87,7 +86,6 @@ label {
     font-size: 1.25rem;
     font-weight: 700; /* Grassetto per maggiore impatto */
 }
-
 /* Pulsanti */
 .btn {
     font-family: 'Lora', sans-serif;
@@ -144,7 +142,6 @@ label {
     background-color: #616161;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
-
 .button-patient-risk-assessment {
     composes: button-base;
     background-color: #FF9800; /* Arancione per maggiore risalto */
@@ -169,7 +166,6 @@ label {
     background-color: #F57C00;
     box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
 }
-
 /* Immagini */
 .img-container {
     width: 100%;
@@ -256,7 +252,6 @@ body.modal-open {
 .text-success {
     color: green;
 }
-
 /* Responsive Styles */
 @media (max-width: 767.98px) {
     .card {
@@ -328,7 +323,6 @@ body.modal-open {
         max-height: 400px;
     }
 }
-
 /* Rendi il fieldset largo quanto le immagini */
 .collapsible-fieldset {
     width: 100%; /* Assicurati che occupi tutta la larghezza disponibile del contenitore */
@@ -455,12 +449,12 @@ fieldset .collapsible-legend {
 }
 /* CSS standard per dispositivi mobili (che non applica margine) */
 .image-margin {
-    margin-top: 130px !important;
+    margin-top: 150px !important;
 }
 
 /* Media query per dispositivi con larghezza dello schermo maggiore di 768px */
 @media (min-width: 768px) {
     .image-margin {
-        margin-top: 0px !important; /* Margine superiore per desktop */
+        margin-top: 150px !important; /* Margine superiore per desktop */
     }
 }
