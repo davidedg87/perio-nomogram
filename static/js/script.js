@@ -23,16 +23,17 @@ $(document).ready(function() {
         document.getElementById('warning-text').style.display = 'none';
     }
 
-    // Funzione per resettare il modale principale
-    function resetMainModal() {
-        document.getElementById('calculation-form').reset();
-        const calculateButton = document.getElementById('calculate-button');
-        calculateButton.removeAttribute('data-original-title');
-        $('[data-toggle="tooltip"]').tooltip('update');
-        document.getElementById('error-message').style.display = 'none';
-        toggleCalculateButton();
-    }
-
+	// Funzione per resettare il modale principale
+	window.resetMainModal = function() {
+    document.getElementById('calculation-form').reset();
+    const calculateButton = document.getElementById('calculate-button');
+    calculateButton.removeAttribute('data-original-title');
+    updateTooltip(calculateButton);
+    document.getElementById('error-message').style.display = 'none';
+    toggleCalculateButton();
+	};
+	
+	
     // Funzione per gestire l'abilitazione/disabilitazione del pulsante di calcolo
     function toggleCalculateButton() {
         const form = document.getElementById('calculation-form');
@@ -203,12 +204,6 @@ $(document).ready(function() {
 
         doc.save(`${fileNameExport}.pdf`);
     }
-
-    // Funzione per resettare il modulo di calcolo
-    window.resetForm = function() {
-        document.getElementById('calculation-form').reset();
-        document.getElementById('calculate-button').disabled = true;
-    };
 
     // Aggiungi event listener ai campi richiesti per abilitare/disabilitare il pulsante di calcolo
     function addFieldEventListeners() {
